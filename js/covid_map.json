@@ -12,7 +12,10 @@
       "lookup": "properties.NAME",
       "from": {
         "data": {
-          "url": "../data/covid_dataset.csv"
+          "url": "../data/covid_dataset.csv",
+          "format":{
+            "type":"csv"
+          }
         },
         "key": "Country",
         "fields": ["Active"]
