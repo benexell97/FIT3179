@@ -12,7 +12,7 @@
       "lookup": "properties.NAME",
       "from": {
         "data": {
-          "url": "https://github.com/benexell97/FIT3179/blob/gh-pages/data/covid_dataset.csv",
+          "url": "https://raw.github.com/benexell97/FIT3179/blob/gh-pages/data/covid_dataset.csv",
           "format":{
             "type":"csv"
           }
