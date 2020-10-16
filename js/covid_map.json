@@ -13,7 +13,7 @@
       "lookup": "properties.NAME",
       "from": {
         "data": {
-          "url": "../data/suicide_dataset.csv"
+          "url": "../data/covid_dataset.csv"
         },
         "key": "Country",
         "fields": ["Active"]
