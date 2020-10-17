@@ -5,7 +5,7 @@
   "height": 600,
   "data": {
     "url": "https://raw.githubusercontent.com/benexell97/FIT3179/gh-pages/js/worldmap.topojson",
-    "format": {"type": "topojson", "feature": "worldmap"}
+    "format": {"type": "topojson", "feature": "custom"}
   },
   "transform": [
     {
