@@ -3,23 +3,18 @@
   "title": "COVID-19 Active Cases (10 Oct 2020)",
   "width": 800,
   "height": 600,
-  "projection": {"type": "equirectangular"},
-  "layer": [
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/benexell97/FIT3179/gh-pages/js/worldmap.topojson",
-        "format": {"type": "topojson", "feature": "custom"}
-      },
-      "mark": {"type": "geoshape", "fill":"lightgray","stroke":"white"},
-    }
-
-  ]
-  "transform": [
-    {
+  "data": {
+    "url": "./worldmap.topojson",
+    "format": {
+          "type": "topojson",
+          "feature": "custom"
+        }
+  },
+  "transform": [{
       "lookup": "properties.NAME",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/benexell97/FIT3179/gh-pages/data/covid_dataset.csv"
+          "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/3_choropleth_map/data/covid_10_10_2020.csv"
         },
         "key": "Country",
         "fields": ["Active"]
@@ -27,6 +22,12 @@
     },
     {"calculate": "datum.Active + 0.1", "as": "Active Cases"}
   ],
+  "projection": {
+    "type": "equirectangular"
+  },
+  "mark": {
+    "type": "geoshape"
+    },
   "encoding": {
     "color": {
       "field": "Active Cases",
@@ -38,4 +39,5 @@
       {"field": "Active", "type": "quantitative"}
     ]
   }
+
 }
