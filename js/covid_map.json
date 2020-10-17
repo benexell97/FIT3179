@@ -13,9 +13,6 @@
       "from": {
         "data": {
           "url": "https://github.com/benexell97/FIT3179/blob/gh-pages/data/covid_dataset.csv",
-          "format":{
-            "type":"csv"
-          }
         },
         "key": "Country",
         "fields": ["Active"]
