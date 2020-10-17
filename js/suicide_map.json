@@ -15,7 +15,7 @@
           "url": "https://raw.githubusercontent.com/benexell97/FIT3179/gh-pages/data/suicide_dataset.csv"
         },
         "key": "country",
-        "fields": ["suicides_no","year"]
+        "fields": ["suicides_no"]
       }
     },
     {"calculate": "datum.suicides_no + 0.1", "as": "Suicide Numbers"}
