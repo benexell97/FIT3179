@@ -17,9 +17,8 @@
         "key": "country",
         "fields": ["suicides_no","year"]
       }
-
     },
-    {"calcuate": "datum.suicides_no + 0.1", "as": "Suicide Numbers"}
+    {"calculate": "datum.suicides_no + 0.1", "as": "Suicide Numbers"}
   ],
   "projection": {"type": "equirectangular"},
   "mark": {"type": "geoshape"},
