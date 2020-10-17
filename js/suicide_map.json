@@ -22,19 +22,10 @@
     {"calcuate": "datum.suicides_no + 0.1", "as": "Suicide Numbers"}
   ],
 
-  "selection":{
-    "selection":{
-      "suicides_no": {
-        "type": "single", "fields" :["suicides_no","year"],
-        "init":{"year":1985},
-        "bind":{
-          "year":{"input":"range","min":1985,"max":2016,"step":1}
-        }
-      }
-    }
-  }
-  
+
   "projection": {"type": "equirectangular"},
+
+
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
