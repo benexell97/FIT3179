@@ -1,0 +1,53 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "World Suicide Numbers By Year",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/benexell97/FIT3179/gh-pages/js/worldmap.topojson",
+    "format": {
+          "type": "topojson",
+          "feature": "custom"
+        }
+  },
+  "transform": [{
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/benexell97/FIT3179/gh-pages/data/suicide_dataset.csv"
+        },
+        "key": "country",
+        "fields": ["suicides_no","population","year"]
+      }
+    },
+    {
+      "calculate" : "(datum.suicides_no + .1)/(datum.population)*100", "as": "Suicide Rate"
+    },
+    {
+      "calculate": "datum.suicides_no + .1", "as": "Total Suicides"
+    },
+    {
+      "calculate": "datum.population", "as": "Total Population"
+    }
+  ],
+  "projection": {
+    "type": "equirectangular"
+  },
+  "mark": {
+    "type": "geoshape"
+    },
+  "encoding": {
+    "color": {
+      "field": "Suicide Rate",
+      "type": "quantitative",
+      "scale": {"type": "log"}
+    },
+    "tooltip": [
+      {"field": "properties.name", "type": "nominal", "title": "Country"},
+      {"field": "Suicide Rate", "type": "quantitative"},
+      {"field": "Total Suicides", "type": "quantitative"},
+      {"field": "Total Population", "type": "quantitative"}
+    ]
+  }
+
+}
