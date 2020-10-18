@@ -41,41 +41,40 @@
           {"field": "Active", "type": "quantitative"}
         ]
       },
+    }],
 
-
-      "data": [
-        {
-          "name": "world",
-          "url": "data/ne_110m_graticules_30.json",
-          "format": {
-            "type": "topojson",
-            "feature": "ne_110m_graticules_30"
-          }
-        },
-        {
-          "name": "graticule",
-          "transform": [
-            { "type": "graticule" }
-          ]
-        }
-      ],
-        "mark": [
-            {
-              "type": "shape",
-              "from": {"data": "graticule"},
-              "encode": {
-                "update": {
-                  "strokeWidth": {"value": 1},
-                  "strokeDash": {"signal": "[+graticuleDash, +graticuleDash]"},
-                  "stroke": {"signal": "invert ? '#444' : '#ddd'"},
-                }
-              },
-              "transform": [
-                { "type": "geoshape", "projection": "projection" }
-              ]
+    "layer":[
+      {
+        "data": [
+          {
+            "name": "world",
+            "url": "data/ne_110m_graticules_30.json",
+            "format": {
+              "type": "topojson",
+              "feature": "ne_110m_graticules_30"
             }
-          ]
-      }
-  ]
-
+          },
+          {
+            "name": "graticule",
+            "transform": [
+              { "type": "graticule" }
+            ]
+          }
+        ],
+          "mark": [
+              {
+                "type": "shape",
+                "from": {"data": "graticule"},
+                "encode": {
+                  "update": {
+                    "strokeWidth": {"value": 1},
+                    "strokeDash": {"signal": "[+graticuleDash, +graticuleDash]"},
+                    "stroke": {"signal": "invert ? '#444' : '#ddd'"},
+                  }
+                },
+                "transform": [
+                  { "type": "geoshape", "projection": "projection" }
+                ]
+            }]
+      }]
 }
