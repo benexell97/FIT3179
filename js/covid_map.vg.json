@@ -59,28 +59,23 @@
           ]
         }
       ],
-
-      "layer":[
-        {
-          "mark": [
-              {
-                "type": "shape",
-                "from": {"data": "graticule"},
-                "encode": {
-                  "update": {
-                    "strokeWidth": {"value": 1},
-                    "strokeDash": {"signal": "[+graticuleDash, +graticuleDash]"},
-                    "stroke": {"signal": "invert ? '#444' : '#ddd'"},
-                    "fill": {"value": null}
-                  }
-                },
-                "transform": [
-                  { "type": "geoshape", "projection": "projection" }
-                ]
-              }
-            ]
-          }
-        ]
+        "mark": [
+            {
+              "type": "shape",
+              "from": {"data": "graticule"},
+              "encode": {
+                "update": {
+                  "strokeWidth": {"value": 1},
+                  "strokeDash": {"signal": "[+graticuleDash, +graticuleDash]"},
+                  "stroke": {"signal": "invert ? '#444' : '#ddd'"},
+                  "fill": {"value": null}
+                }
+              },
+              "transform": [
+                { "type": "geoshape", "projection": "projection" }
+              ]
+            }
+          ]
       }
   ]
 
