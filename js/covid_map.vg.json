@@ -42,24 +42,26 @@
         ]
       },
 
+
+      "data": [
+        {
+          "name": "world",
+          "url": "data/ne_110m_graticules_30.json",
+          "format": {
+            "type": "topojson",
+            "feature": "ne_110m_graticules_30"
+          }
+        },
+        {
+          "name": "graticule",
+          "transform": [
+            { "type": "graticule" }
+          ]
+        }
+      ],
+      
       "layer":[
         {
-          "data": [
-            {
-              "name": "world",
-              "url": "data/ne_110m_graticules_30.json",
-              "format": {
-                "type": "topojson",
-                "feature": "ne_110m_graticules_30"
-              }
-            },
-            {
-              "name": "graticule",
-              "transform": [
-                { "type": "graticule" }
-              ]
-            }
-          ],
             "mark": [
                 {
                   "type": "shape",
