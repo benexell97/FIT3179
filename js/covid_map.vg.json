@@ -68,7 +68,6 @@
                   "strokeWidth": {"value": 1},
                   "strokeDash": {"signal": "[+graticuleDash, +graticuleDash]"},
                   "stroke": {"signal": "invert ? '#444' : '#ddd'"},
-                  "fill": {"value": null}
                 }
               },
               "transform": [
