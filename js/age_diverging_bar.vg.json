@@ -16,11 +16,16 @@
       "x": {
         "aggregate": "sum", "field": "SuicidesNo",
         "title": "Suicides Total",
-        "axis": {"format": "s"}
+        "axis": {"format": "s"},
+        "as":"Total_Suicides"
       },
       "color": {
         "value": "#FFC107"
-      }
+      },
+      "tooltip": [
+        {"field": "Sex", "type": "nominal", "title": "Sex"},
+        {"field": "Total_Suicides", "type": "quantitative", "format": ".2f","title":"Total Suicides"}
+      ]
     }
   }, {
     "width": 20,
@@ -47,11 +52,16 @@
       "x": {
         "aggregate": "sum", "field": "SuicidesNo",
         "title": "Suicides Total",
-        "axis": {"format": "s"}
+        "axis": {"format": "s"},
+        "as": "Total_Suicides"
       },
       "color": {
         "value":"#1E88E5"
-      }
+      },
+      "tooltip": [
+        {"field": "Sex", "type": "nominal", "title": "Sex"},
+        {"field": "Total_Suicides", "type": "quantitative", "format": ".2f","title":"Total Suicides"}
+      ]
     }
   }],
   "config": {
