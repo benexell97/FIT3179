@@ -2,6 +2,13 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "description": "A population pyramid for the US in 2000.",
   "data": { "url": "https://raw.githubusercontent.com/benexell97/FIT3179/gh-pages/data/suicide_master_dataset.csv"},
+  "selection": {
+    "Gen": {
+      "type": "single",
+      "fields": ["Generation"],
+      "bind": {"input": "select", "options": [null, "Generation X", "Silent", "G.I. Generation","Boomers","Millenials","Generation Z"]}
+    }
+  },
   "spacing": 0,
   "hconcat": [{
     "transform": [{
