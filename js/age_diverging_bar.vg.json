@@ -1,29 +1,26 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "description": "A population pyramid for the US in 2000.",
-  "data": { "url": "https://raw.githubusercontent.com/benexell97/FIT3179/gh-pages/data/suicide_per_age.csv"},
-  "transform": [
-    {"calculate": "datum.Male", "as": "male_suicides"},
-    {"calculate": "datum.Female", "as": "female_suicides"}
-  ],
+  "data": { "url": "https://raw.githubusercontent.com/benexell97/FIT3179/gh-pages/data/suicide_master_dataset.csv"},
   "spacing": 0,
   "hconcat": [{
+    "transform": [{
+      "filter": {"field": "Sex", "equal": "female"}
+    }],
     "title": "Female",
     "mark": "bar",
     "encoding": {
       "y": {
-        "field": "Age", "axis": null, "type":"nominal",
-        "sort": ["5-14 years","15-24 years","25-34 years","35-54 years","55-74 year","75+ year"]
+        "field": "Age", "axis": null, "sort": ["5-14 years","15-24 years","25-34 years","35-54 years","55-74 years","75+ years"]
       },
       "x": {
-        "field": "female_suicides",
-        "title": "Suicides",
+        "aggregate": "sum", "field": "SuicidesNo",
+        "title": "Suicides Total",
         "axis": {"format": "s"}
       },
-      "color":{
-        "value":"#D81B60"
+      "color": {
+        "value": "#FFC107"
       }
-
     }
   }, {
     "width": 20,
@@ -33,26 +30,26 @@
       "align": "center"
     },
     "encoding": {
-      "y": {
-        "field": "Age", "type": "nominal", "axis": null,
-        "sort": ["5-14 years","15-24 years","25-34 years","35-54 years","55-74 year","75+ year"]
-      },
-      "text": {"field": "age", "type": "nominal"}
+      "y": {"field": "Age", "type": "nominal", "axis": null, "sort": ["5-14 years","15-24 years","25-34 years","35-54 years","55-74 years","75+ years"]},
+      "text": {"field": "Age", "type": "Nominal"}
     }
   }, {
+    "transform": [{
+      "filter": {"field": "Sex", "equal": "male"}
+    }],
     "title": "Male",
     "mark": "bar",
     "encoding": {
       "y": {
-        "field": "Age", "title": null
-        "axis": null
+        "field": "Age", "title": null,
+        "axis": null, "sort": ["5-14 years","15-24 years","25-34 years","35-54 years","55-74 years","75+ years"]
       },
-        "field": "male_suicides",
-        "title": "Suicides",
-        "axis": {"format": "s"},
-        "sort": ["5-14 years","15-24 years","25-34 years","35-54 years","55-74 year","75+ year"]
+      "x": {
+        "aggregate": "sum", "field": "SuicidesNo",
+        "title": "Suicides Total",
+        "axis": {"format": "s"}
       },
-      "color":{
+      "color": {
         "value":"#1E88E5"
       }
     }
