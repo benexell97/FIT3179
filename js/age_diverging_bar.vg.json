@@ -12,7 +12,8 @@
   "spacing": 0,
   "hconcat": [{
     "transform": [{
-      "filter": {"field": "Sex", "equal": "female"}
+      "filter": {"field": "Sex", "equal": "female"},
+      "filter": {"selection": "Gen"}
     }],
     "title": "Female",
     "mark": "bar",
@@ -47,7 +48,8 @@
     }
   }, {
     "transform": [{
-      "filter": {"field": "Sex", "equal": "male"}
+      "filter": {"field": "Sex", "equal": "male"},
+      "filter": {"selection": "Gen"}
     }],
     "title": "Male",
     "mark": "bar",
