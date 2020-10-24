@@ -1,0 +1,67 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "description": "Suicides By Age Demographic",
+  "data": { "url": "https://raw.githubusercontent.com/benexell97/FIT3179/gh-pages/data/suicide_master_dataset.csv"},
+  "transform": [
+    {"calculate": "datum.Sex == 2 ? 'female' : 'male'", "as": "gender"}
+  ],
+  "spacing": 0,
+  "hconcat": [{
+    "transform": [{
+      "filter": {"field": "gender", "equal": "female"}
+    }],
+    "title": "Female",
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "field": "Age", "axis": null
+      },
+      "x": {
+        "aggregate": "sum", "field": "SuicidesNo",
+        "title": "Female Suicides",
+        "axis": {"format": "s"}
+      },
+      "color": {
+        "field": "gender",
+        "scale": {"range": ["#675193", "#ca8861"]},
+        "legend": null
+      }
+    }
+  }, {
+    "width": 20,
+    "view": {"stroke": null},
+    "mark": {
+      "type": "text",
+      "align": "center"
+    },
+    "encoding": {
+      "y": {"field": "Age", "type": "nominal", "axis": null},
+      "text": {"field": "Age", "type": "nominal"}
+    }
+  }, {
+    "transform": [{
+      "filter": {"field": "gender", "equal": "male"}
+    }],
+    "title": "Male",
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "field": "Age", "title": null,
+        "axis": null
+      },
+      "x": {
+        "aggregate": "sum", "field": "SuicidesNo",
+        "title": "Male Suicides",
+        "axis": {"format": "s"}
+      },
+      "color": {
+        "field": "gender",
+        "legend": null
+      }
+    }
+  }],
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"grid": false}
+  }
+}
