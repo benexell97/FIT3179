@@ -1,13 +1,7 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 500, "height": 300,
+  "width": 600, "height": 400,
   "data": {"url": "https://raw.githubusercontent.com/benexell97/FIT3179/gh-pages/data/suicide_per_year.csv"},
   "mark": "area",
-  "selection": {
-    "Continent": {
-      "type": "multi", "fields": ["Continent"], "bind": "legend"
-    }
-  },
   "encoding": {
     "x": {
       "timeUnit": "year", "field": "Year",
@@ -15,15 +9,9 @@
     },
     "y": {
       "aggregate": "sum", "field": "SuicidesRate",
-      "stack": "center", "axis": null
+      "axis": null,
+      "stack": "center"
     },
-    "color": {
-      "field":"Continent",
-      "scale": {"scheme": "category20b"}
-    },
-    "opacity": {
-      "condition": {"selection": "Continent", "value": 1},
-      "value": 0.2
-    }
+    "color": {"field":"Continent", "scale":{"scheme": "category20b"}}
   }
 }
