@@ -1,125 +1,111 @@
 {
-   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-   "width": 800,
-   "height": 600,
-   "title": "Country Suicides By GDP Bubble Plot",
-   "data": {
-     "url": "https://raw.githubusercontent.com/benexell97/FIT3179/gh-pages/data/suicide_per_year.csv"
-   },
-   "params": [
-     {
-       "name": "Year",
-       "value": 1985,
-       "bind": {
-         "input": "range",
-         "min": 1985,
-         "max": 2016,
-         "step": 1,
-         "name": "Year: "
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 600,
+  "title": "Suicide Rates By GDP Per Capita",
+  "data": {
+    "url": "https://raw.githubusercontent.com/benexell97/FIT3179/gh-pages/data/suicide_master_dataset.csv"
+  },
+  "params": [
+    {
+      "name": "Year",
+      "value": 1985,
+      "bind": {
+        "input": "range",
+        "min": 1985,
+        "max": 2016,
+        "step": 1,
+        "name": "Year"
       }
-   ],
-   "transform": [
-     {"filter": "datum.SuicidesRate > 0"},
-     {"filter": "datum.GDPCapita > 0"},
-     {"filter": "datum.Population > 0"}
+    }
   ],
-   "encoding": {
-     "x": {
-       "field": "GDPCapita",
-       "type": "quantitative",
-       "title": "GDP Per Capita",
-       "axis": {"tickCount": 7},
-       "scale": {"type": "log", "domain": [1, 127000]}
-     },
-     "y": {
-       "field": "SuicidesRate",
-       "type": "quantitative",
-       "axis": {"tickCount": 5},
-       "scale": {"type": "log", "domain": [1, 225]}
-     }
-   },
-   "layer": [
-     {
-       "selection": {
-       "continent_highlight": {
-         "type": "multi",
-         "fields": ["Continent"],
-         "bind": "legend"
-       }
-     },
-     "mark": "circle",
-     "encoding": {
-       "size": {
-         "field": "Population",
-         "type": "quantitative",
-         "scale": {
-         "type": "threshold",
-         "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
-         "range": [10, 50, 150, 200, 300, 400]
-         },
-         "legend": {"format": ".1s"}
-       },
-       "color": {
-         "field": "Continent",
-         "type": "nominal",
-         "scale": {
-           "domain": [
-             "North America",
-             "South America",
-             "Europe",
-             "Africa",
-             "Asia",
-             "Oceania"
-           ],
-           "range": [
-             "#1E88E5",
-             "#CC79A7",
-             "#009E73",
-             "#F0E442",
-             "#0072B2",
-             "#D55E00"
-           ]
-         }
-       },
-       "opacity": {
-         "condition": {"selection": "continent_highlight", "value": 0.6},
-         "value": 0.2
-       },
-       "tooltip": [
-         {"field": "Country", "type": "nominal"},
-         {"field": "GDPCapita", "type": "quantitative", "format": ","},
-         {"field": "SuicidesRate", "type": "quantitative", "format": ".2f"},
-         {"field": "Population", "type": "quantitative", "format": ","}
-       ]
+  "transform": [
+    {"filter": "datum.GDPCapita > 0"},
+    {"filter": "datum.SuicidesRate > 0"},
+    {"filter": "datum.Population > 0"}
+  ],
+  "encoding": {
+    "x": {
+      "aggregate":[{
+        "op":"mean",
+        "field":"GDPCapita"
+      }],
+      "groupby":["Country"],
+      "type": "quantitative",
+      "title": "GDP Per Capita",
+      "axis": {"tickCount": 7},
+      "scale": {"type": "log", "domain": [1,127000]}
+    },
+    "y": {
+      "aggregate":[{
+        "op":"mean",
+        "field":"SuicidesRate"
+      }],
+      "groupby":["Country"],
+      "type": "quantitative",
+      "axis": {"tickCount": 6},
+      "scale": {"type": "log", "domain": [1, 55]}
+    }
+  },
+  "layer": [
+    {
+      "selection": {
+        "continent_highlight": {
+          "type": "multi",
+          "fields": ["Continent"],
+          "bind": "legend"
+        }
+      },
+      "mark": "circle",
+      "encoding": {
+        "size": {
+          "aggregate":[{
+            "op":"mean",
+            "field":"Population"
+          }],
+          "groupby":["Country"],
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
+            "range": [10, 50, 150, 200, 300, 400]
+          },
+          "legend": {"format": ".1s"}
+        },
+        "color": {
+          "field": "Continent",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "North America",
+              "South America",
+              "Europe",
+              "Africa",
+              "Asia",
+              "Oceania"
+            ],
+            "range": [
+              "#e41a1c",
+              "#984ea3",
+              "#ff7f00",
+              "#a6cee3",
+              "#377eb8",
+              "#a65628"
+            ]
+          }
+        },
+        "opacity": {
+          "condition": {"selection": "continent_highlight", "value": 0.6},
+          "value": 0.2
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Year", "type": "quantitative", "format": ","},
+          {"field": "SuicidesRate", "type": "quantitative", "format": ","},
+          {"field": "GDPCapita", "type": "quantitative", "format": ","},
+          {"field": "Population", "type": "quantitative", "format": ","}
+        ]
       }
-     },
-     {
-       "mark": {
-         "type": "text",
-         "align": "right",
-         "baseline": "middle",
-         "dx": -12,
-         "fontSize": 11.5,
-         "fontStyle": "italic"
-       },
-       "encoding": {
-         "text": {"field": "Country", "type": "nominal"},
-         "color": {"value": "black"},
-         "opacity": {
-           "condition": {
-             "test": "datum['Country'] == 'Singapore' || datum['Country'] == 'Australia' || datum['Country'] == 'New Zealand' || datum['Country'] == 'Italy' || datum['Country'] == 'Yemen' || datum['Country'] == 'United States'",
-             "value": 1
-           },
-           "value": 0
-         },
-         "tooltip": [
-           {"field": "Country", "type": "nominal"},
-           {"field": "GDPCapita", "type": "quantitative", "format": ","},
-           {"field": "SuicidesRate", "type": "quantitative", "format": ".2f"},
-           {"field": "Population", "type": "quantitative", "format": ","}
-         ]
-       }
-     }
-   ]
+    }
+  ]
 }
