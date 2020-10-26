@@ -1,17 +1,21 @@
 {
   "width": 600, "height": 400,
-  "data": {"url": "https://raw.githubusercontent.com/benexell97/FIT3179/gh-pages/data/suicide_per_year.csv"},
+  "data": {"url": "https://raw.githubusercontent.com/benexell97/FIT3179/gh-pages/data/suicide_master_dataset.csv"},
   "mark": "area",
   "encoding": {
     "x": {
-      "timeUnit": "year", "field": "Year",
-      "axis": {"domain": false, "format": "%Y", "tickSize": 0}
+      "timeunit": "year", "field": "Year"
     },
     "y": {
-      "aggregate": "sum", "field": "SuicidesRate",
+      "aggregate": "mean", "field": "SuicidesRate",
       "axis": null,
       "stack": "center"
     },
-    "color": {"field":"Continent", "scale":{"scheme": "category20b"}}
+    "color": {"field":"Continent", "scale":{"scheme": "category20b"}},
+    "tooltip":[
+      {"field":"Continent","type":"nominal"},
+      {"aggregate":"mean","field":"SuicidesRate", "name":"Suicides Per 100,000"},
+      {"field":"Year","timeunit":"Year"}
+    ]
   }
 }
