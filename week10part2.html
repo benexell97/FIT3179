@@ -10,14 +10,19 @@
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
+  <!-- Pure CSS import -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+  <div class="charts">
   <h1>Two Charts Example</h1>
   <h2>Chart 1: Chloropleth Map</h2>
-<div id="chloropleth_suicide_map"></div>
-<br>
-<h2>Chart 2: Stacked Bar Chart</h2>
-<div id="diverging_bar"></div>
+  <div id="chloropleth_suicide_map"></div>
+  <br>
+  <h2>Chart 2: Stacked Bar Chart</h2>
+  <div id="diverging_bar"></div>
+</div>
 
 <script type="text/javascript">
   var vis1 = "js/suicide_map.vg.json";
