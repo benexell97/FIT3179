@@ -88,12 +88,6 @@
       </div>
     </div>
 
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <div id="suicide_bubble"></div>
-      </div>
-    </div>
-
 
   </div>
   <script type="text/javascript">
@@ -110,11 +104,6 @@
 
     var areachart = "js/ass2_area_chart.vg.json";
     vegaEmbed('#ass2_area_chart', areachart).then(function(result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-
-    var suicide_bubble = "js/suicide_bubble_plot.vg.json";
-    vegaEmbed('#suicide_bubble', suicide_bubble).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
