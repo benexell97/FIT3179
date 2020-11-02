@@ -27,6 +27,21 @@
     }
     .pure-g{
       padding-top:20px;
+      .margin-bottom:20px;
+    }
+    .text  h1,h1{
+      margin-top:0px;
+    }
+    .text-left{
+      padding-right: 20px;
+    }
+    .map_vis{
+      margin:auto;
+      width:100%;
+    }
+    .map_vis{
+      margin:auto;
+      width:100%;
     }
   </style>
 
@@ -43,13 +58,23 @@
     <div class="pure-g">
       <div class="pure-u-1-1">
         <h3>World Suicides Averages Per 100,000</h3>
-        <p>Discussion on location and cultural differences for key countries (particularly high or low rates)</p>
+        <p>
+          This chloropleth map shows the differences in overall suicide rates for different countries. Higher rates are indicated
+          by a darker colour, with lighter colours indicating a lower suicide rate. Countries that do not appear in the visualisation simply have no data available
+          in the dataset, an example of this is China which does not officially release their suicide data. The highest visible suicide rate is in Lithuania, there are many
+          factors to consider in this particularly high suicide rate. In fact many countries that were part of the CCCP tend to have a suicide rate[1] likely due
+          to the effects of the oppressive regime the CCCP imposed on its countries with Lithuania being just the highest example.
+
+
+        </p>
       </div>
     </div>
 
     <div class="pure-g">
       <div class="pure-u-1-1">
-        <div id="choropleth_map"></div>
+        <div class="map_vis">
+          <div id="choropleth_map"></div>
+        </div>
       </div>
     </div>
 
@@ -57,34 +82,56 @@
     <div class="pure-g">
       <div class="pure-u-1-1">
         <h3>Continent Suicides Stream</h3>
-        <p> Discussion on continent differences at the time, wars, recessions etc that could effect the rate </p>
+        <p> This stream graph shows the suicide rates (per 100,000) of different continents each year from 1985-2016, to highlight a particular continents
+          click on the legend.
+        </br></br>
+        We can see a particularly large rate occured in 1988, this could be due to the ongoing cold war between the USSR and Western World.
+        When looking at the rates of both Asia and Africa, they are quite high, this could potentially be due to a number of wars that occured as
+        a result of the Cold War in these regions including the Russian-Afghanistan War, the Angola Civil war, the Middle East conflict and the Salvadoran and
+        Nicaraguan Civil wars[2].
+        </br></br>
+        In general, the standard of living worldwide especially in the western world has increased[3], likely leading to the decrease in overall suicides that can be seen from 1988 onwards, This
+        also implies that the presence of significant world conflicts has a significant effect on the suicide rates.
+        </p>
       </div>
     </div>
 
     <div class="area_chart_div">
       <div class="pure-g">
         <div class="pure-u-1-1">
-          <div id="ass2_area_chart"></div>
-        </div>
+          </div class="area_vis">
+            <div id="ass2_area_chart"></div>
       </div>
     </div>
 
 
     <div class="pure-g">
       <div class="pure-u-1-3">
-        <h3> Sex Stacked Bar</h3>
-        <p> Discussion on gender, age group and generation differences </p>
+        <div class="text text-left">
+          <h3> Sex Stacked Bar</h3>
+          <p>
+            This bar chart shows us the differences between the different biological sexes and there
+            suicide numbers, as well as the different age demographics.
+            </br>
+            To filter by generation you can use the input box located at the bottom of the graph
+          </p>
+        </div>
       </div>
       <div class="pure-u-2-3">
         <div id="diverging_bar"></div>
       </div>
     </div>
 
-
     <div class="pure-g">
       <div class="pure-u-1-1">
-        <h3>GDP Bubble plot</h3>
-        <p> Discussion on how GDP may affect suicide rate </p>
+        <h2>Bibliography</h2>
+        <p>
+          [1] V. A. W. D; “Suicides in the former Soviet republics,” National Library of Medicine. [Online]. Available: https://pubmed.ncbi.nlm.nih.gov/1414406/. [Accessed: 02-Nov-2020].
+        </br></br>
+          [2] “Cold War Proxy Wars,” World History. [Online]. Available: https://dresnerworld.edublogs.org/resources/handouts/cold-war-proxy-wars/. [Accessed: 02-Nov-2020].
+        </br></br>
+          [3] E. Yardeni, “Americans' living standards are at an all-time high. Here's proof,” MarketWatch, 03-May-2019. [Online]. Available: https://www.marketwatch.com/story/americans-living-standards-are-at-an-all-time-high-heres-proof-2019-05-02. [Accessed: 02-Nov-2020].
+        </p>
       </div>
     </div>
 
