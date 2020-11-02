@@ -2,16 +2,24 @@
   "width": 500, "height": 300,
   "data": {"url": "https://raw.githubusercontent.com/benexell97/FIT3179/gh-pages/data/suicide_master_dataset.csv"},
   "mark": "area",
+  "selection":{
+    "cont": {
+      "type":"multi","fields":["Continent"], "bind":"legend"
+    }
+  },
   "encoding": {
     "x": {
       "timeunit": "year", "field": "Year"
     },
     "y": {
       "aggregate": "mean", "field": "SuicidesRate",
-      "axis": null,
       "stack": "center"
     },
     "color": {"field":"Continent", "scale":{"scheme": "category20b"}},
+    "opacity":{
+      "condition":{"selection":"cont","value":1},
+      "value":0.2
+    },
     "tooltip":[
       {"field":"Continent","type":"nominal"},
       {"aggregate":"mean","field":"SuicidesRate", "name":"Suicides Per 100,000"},
