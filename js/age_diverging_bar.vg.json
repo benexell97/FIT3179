@@ -20,7 +20,8 @@
         "as":"Total_Suicides"
       },
       "color": {
-        "field": "Sex"
+        "field": "Sex",
+        "scale":{"range":["pink","blue"]}
       },
       "tooltip": [
         {"field": "Sex", "type": "nominal", "title": "Sex"},
